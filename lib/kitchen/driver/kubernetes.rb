@@ -69,7 +69,7 @@ module Kitchen
         [
           driver.instance.name.gsub(/\W/, ''),
           (Etc.getlogin || 'nologin').gsub(/\W/, ''),
-          Socket.gethostname.gsub(/\W/, '')[0..20],
+          Socket.gethostname.gsub(/\W/, '').downcase[0..20],
           Array.new(8) { rand(36).to_s(36) }.join
         ].join('-')
       end
